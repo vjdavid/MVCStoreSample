@@ -9,7 +9,7 @@ package Modelo;
  *
  * @author david
  */
-public class TUsuario {
+public class Usuario {
     private int id;
     private String codigo;
     private String nombre;
@@ -17,10 +17,10 @@ public class TUsuario {
     private String usuario;
     private String contrasena;
     
-    public TUsuario(){
+    public Usuario(){
     }
 
-    public TUsuario(String codigo, String nombre, String telefono, String usuario, String contrasena) {
+    public Usuario(String codigo, String nombre, String telefono, String usuario, String contrasena) {
         this.id = id;
         this.codigo = codigo;
         this.nombre = nombre;

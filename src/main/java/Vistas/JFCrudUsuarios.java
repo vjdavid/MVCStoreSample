@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Vistas;
+import Controlador.ControladorCrudUsuarios;
 
 /**
  *
@@ -47,6 +48,14 @@ public class JFCrudUsuarios extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Informacion de Usuarios");
 
+        jUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Codigo", "Nombre", "Telefono", "Usuario", "Contrasena"
+            }
+        ));
         jScrollPane1.setViewportView(jUsuarios);
 
         jLabel1.setText("Telefono:");
@@ -150,53 +159,29 @@ public class JFCrudUsuarios extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFCrudUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFCrudUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFCrudUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFCrudUsuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new JFCrudUsuarios().setVisible(true);
-            }
-        });
+        JFCrudUsuarios view = new JFCrudUsuarios();
+        ControladorCrudUsuarios controller = new ControladorCrudUsuarios(view);
+        view.setVisible(true); 
+        view.setLocationRelativeTo(view);
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnConsultar;
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnGrabar;
-    private javax.swing.JButton btnModificar;
+    public javax.swing.JButton btnConsultar;
+    public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnGrabar;
+    public javax.swing.JButton btnModificar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jUsuarios;
-    private javax.swing.JTextField txtContrasena;
-    private javax.swing.JTextField txtDNI;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtTelefono;
-    private javax.swing.JTextField txtUsuario;
+    public javax.swing.JTable jUsuarios;
+    public javax.swing.JTextField txtContrasena;
+    public javax.swing.JTextField txtDNI;
+    public javax.swing.JTextField txtNombre;
+    public javax.swing.JTextField txtTelefono;
+    public javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

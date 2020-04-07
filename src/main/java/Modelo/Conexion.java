@@ -12,12 +12,12 @@ import javax.swing.JOptionPane;
  * @author david
  */
 public class Conexion {
-    Connection conectar = null;
-   
-    public Connection conexion() {
+    
+    public static Connection conectar() {
+        Connection conectar = null;
+        
         try {
-            conectar = DriverManager.getConnection("jdbc:mysql://localhost:3306/Tienda?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "david12345");
-            System.out.println("Conexion Exitosa");
+            conectar = DriverManager.getConnection("jdbc:mysql://localhost:3306/Tienda?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "david12345");            
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
