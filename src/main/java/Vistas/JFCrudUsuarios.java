@@ -5,6 +5,7 @@
  */
 package Vistas;
 import Controlador.ControladorCrudUsuarios;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -68,7 +69,7 @@ public class JFCrudUsuarios extends javax.swing.JFrame {
 
         jLabel5.setText("Contraseña:");
 
-        btnGrabar.setText("Guardar");
+        btnGrabar.setText("Ingresar");
 
         btnEliminar.setText("Eliminar");
 
@@ -163,6 +164,13 @@ public class JFCrudUsuarios extends javax.swing.JFrame {
         ControladorCrudUsuarios controller = new ControladorCrudUsuarios(view);
         view.setVisible(true); 
         view.setLocationRelativeTo(view);
+        
+        view.jUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {                
+                int fila = view.jUsuarios.getSelectedRow();
+                controller.llenadoFormulario(fila);                               
+            }
+        });
         
     }
 

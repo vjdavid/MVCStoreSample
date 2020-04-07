@@ -16,7 +16,7 @@ public interface IUsuarioDAO {
     public boolean crear(Usuario tusuario);
     public List<Usuario> obtener();
     public boolean actualizar(Usuario tusuario);
-    public boolean eliminar(Usuario tusuario);
+    public boolean eliminar(String codigo);
     
 }
 

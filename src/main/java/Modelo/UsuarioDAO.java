@@ -80,7 +80,9 @@ public class UsuarioDAO implements IUsuarioDAO {
 
         boolean actualizar = false;
 
-        String sql = "UPDATE usuarios SET nombre='" + usuario.getNombre() + "', telefono='" + usuario.getTelefono() + "', usuario='" + usuario.getUsuario() + "'" + "', contrasena='" + usuario.getContrasena() + "'" + " WHERE id=" + usuario.getId();
+        String sql = "UPDATE usuarios SET nombre='" + usuario.getNombre() + "', telefono='" + usuario.getTelefono() + "', usuario='" + usuario.getUsuario() + "', contrasena='" + usuario.getContrasena() + "'" + " WHERE codigo='" + usuario.getCodigo() + "';";
+        System.out.println(sql);
+        
         try {
             connect = Conexion.conectar();
             stm = connect.createStatement();
@@ -94,13 +96,14 @@ public class UsuarioDAO implements IUsuarioDAO {
     }
 
     @Override
-    public boolean eliminar(Usuario usuario) {
+    public boolean eliminar(String codigo) {
         Connection connect = null;
         Statement stm = null;
 
         boolean eliminar = false;
 
-        String sql = "DELETE FROM usuarios WHERE codigo=" + usuario.getCodigo();
+        String sql = "DELETE FROM usuarios WHERE codigo='" + codigo + "';";
+        System.out.println(sql);
         try {
             connect = Conexion.conectar();
             stm = connect.createStatement();
