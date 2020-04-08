@@ -13,6 +13,7 @@ import java.util.List;
  */
 public interface IUsuarioDAO {
     
+    //Creamos las de las funciones para poder crear un codigo mas ordenado    
     public boolean crear(Usuario tusuario);
     public List<Usuario> obtener();
     public boolean actualizar(Usuario tusuario);

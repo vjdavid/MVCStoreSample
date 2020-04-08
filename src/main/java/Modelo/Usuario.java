@@ -10,6 +10,7 @@ package Modelo;
  * @author david
  */
 public class Usuario {
+    //Establecemos las propiedades que contendra el Usuario
     private int id;
     private String codigo;
     private String nombre;
@@ -17,6 +18,7 @@ public class Usuario {
     private String usuario;
     private String contrasena;
     
+    //Creamos una clasecon sus respectivos constructores para poner incializar usuarios
     public Usuario(){
     }
 
@@ -29,6 +31,7 @@ public class Usuario {
         this.contrasena = contrasena;
     }
 
+    //Creamos getters y setters
     public int getId() {
         return id;
     }

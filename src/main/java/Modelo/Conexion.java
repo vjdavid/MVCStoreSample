@@ -5,14 +5,13 @@
  */
 package Modelo;
 import java.sql.*;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author david
  */
 public class Conexion {
     
+    //Creamos una clase con un metodo static para poder mandarlo a llamar en cualquier dataAccess
     public static Connection conectar() {
         Connection conectar = null;
         

@@ -21,11 +21,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ControladorCrudUsuarios implements ActionListener {
     
+    //Creamos los objetos para cada una de las diferentes capas
     UsuarioDAO dataAcess = new UsuarioDAO();
     Usuario usuario = new Usuario();
     JFCrudUsuarios vista = new JFCrudUsuarios();
     DefaultTableModel modelo = new DefaultTableModel();
     
+    
+    /* Creamos un constructor para inicializar todos los elementos
+     al momento de instanciar el controlador */
     public ControladorCrudUsuarios(JFCrudUsuarios vista){
         this.vista = vista;
         this.vista.btnConsultar.addActionListener(this);
@@ -34,6 +38,8 @@ public class ControladorCrudUsuarios implements ActionListener {
         this.vista.btnEliminar.addActionListener(this);
     }
     
+    /*Sobre escribimos el metodo implementado de ActionListener para 
+    realizar diferentes acciones dependiendo lo que el usuario seleccionado en la vista */
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == vista.btnConsultar) {
@@ -63,6 +69,7 @@ public class ControladorCrudUsuarios implements ActionListener {
         }               
     }
     
+    //Creamos un procedimiento para actualizar la instancia del usuario que hayamos seleccionado
     public void actualizar() {
         Usuario usuario = llenadoDeDatos();
         
@@ -75,6 +82,7 @@ public class ControladorCrudUsuarios implements ActionListener {
         }        
     }
      
+    //Agregemos un metodo para enviar todos los atributos de una instancia al dataAccess para crear el usuario
     public void agregar(){              
         boolean agregado = dataAcess.crear(llenadoDeDatos());
         
@@ -85,6 +93,7 @@ public class ControladorCrudUsuarios implements ActionListener {
         }
     }
     
+    //Creamos un metodo para ejecutarse en el JTable e introducir los usuarios en esta tabla
     public void listar(JTable tabla){
         modelo = (DefaultTableModel)tabla.getModel();
         List<Usuario>lista = this.dataAcess.obtener();
@@ -102,6 +111,7 @@ public class ControladorCrudUsuarios implements ActionListener {
         tabla.setModel(modelo);
     }
     
+    //Este metodo toma toda la fila seleccionada y setea los valores en cada uno de los inputs
     public void llenadoFormulario(int fila){
         
         if (fila >= 0) {
@@ -115,6 +125,7 @@ public class ControladorCrudUsuarios implements ActionListener {
         }
     }
     
+    //Este metodo un id y elimina un registro utilizando el dataAccess
     public void eliminar(){
         if(vista.txtDNI.getText() != null) {            
             dataAcess.eliminar(vista.txtDNI.getText());
@@ -124,6 +135,7 @@ public class ControladorCrudUsuarios implements ActionListener {
         
     }
     
+    //Este toma la instancia actual de usuario y setea cada uno de los valores tomando como referencia los inputs
     public Usuario llenadoDeDatos(){
         usuario.setCodigo(vista.txtDNI.getText());
         usuario.setNombre(vista.txtNombre.getText());
@@ -134,6 +146,7 @@ public class ControladorCrudUsuarios implements ActionListener {
         return usuario;
     }
     
+    //Este metodo elimina los registros que tenga actualmente el JTable
     public void limpiarTabla(){
         for(int i = 0; i < vista.jUsuarios.getRowCount(); i++){
             modelo.removeRow(i);
@@ -141,6 +154,7 @@ public class ControladorCrudUsuarios implements ActionListener {
         }
     }
     
+    //Este metodo setea todos los inputs a su estado vacio
     public void limpiarFormulario(){
         vista.txtDNI.setText("");
         vista.txtNombre.setText("");
